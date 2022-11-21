@@ -1,9 +1,13 @@
-import express from 'express'
+import express from "express";
+import cors from "cors";
+import { MongoClient } from "mongodb";
+import 'dotenv/config'
 
-const PORT = 3030
-const app = express()
-app.use(express.json())
+// const PORT = 4040;
+const app = express();
+app.use(cors())
+app.use(express.json());
 
-app.get('/', (req,res) => res.send('working'))
+app.get("/", (req, res) => res.send("working"));
 
-app.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}...`))
+app.listen(process.env.PORT, () => console.log(`Listening on http://localhost:${process.env.PORT}...`));
